@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 public class ViewManager : MonoBehaviour {
 
-    private GameObject copyMapPrefab;
+    private GameObject copyMapGO;
 
     void Awake() {
-        GameObject copyMapGO = ViewUtility.LoadRes("Assets/Prefabs/CopyMap.prefab");
+        copyMapGO = ViewUtility.LoadRes("Assets/Prefabs/CopyMap.prefab");
         copyMapGO.AddComponent<CopyMapView>();
     }
 
@@ -20,5 +20,6 @@ public class ViewManager : MonoBehaviour {
 	void Update () {
 	
 	}
+
 
 }

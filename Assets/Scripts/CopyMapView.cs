@@ -24,6 +24,8 @@ public class CopyMapView : MonoBehaviour {
 
         InitPosList();
         InitIconList();
+
+        InvokeRepeating("RandomChoiceIcon", 3f, 3f);
 	}
 	
 	// Update is called once per frame
@@ -60,5 +62,14 @@ public class CopyMapView : MonoBehaviour {
         isSetPos = true;
     }
 
+    private void RandomChoiceIcon() {
+        int i = Random.Range(0, iconDict.Count);
+        foreach (KeyValuePair<int, GameObject> icon in iconDict) {
+            if (icon.Key == i)
+                icon.Value.GetComponent<ViewIcon>().Focus = true;
+            else
+                icon.Value.GetComponent<ViewIcon>().Focus = false;
+        }
+    }
 
 }
